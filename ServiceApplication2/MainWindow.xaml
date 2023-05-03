@@ -32,8 +32,8 @@
                 </TransformGroup>
             </GroupBox.RenderTransform>
         </GroupBox>
-        <RadioButton x:Name="rdExpress" Content="Express" HorizontalAlignment="Left" Margin="93,328,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdRegular" Content="Regular" HorizontalAlignment="Left" Margin="156,328,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbExpress" Content="Express" HorizontalAlignment="Left" Margin="93,328,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbRegular" Content="Regular" HorizontalAlignment="Left" Margin="156,328,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbServiceCost" HorizontalAlignment="Left" Margin="10,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
         <Label x:Name="Service_Cost" Content="Service Cost" HorizontalAlignment="Left" Margin="10,353,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,412,0,0" VerticalAlignment="Top" Width="75" Height="50" FontSize="16" FontWeight="Bold"/>

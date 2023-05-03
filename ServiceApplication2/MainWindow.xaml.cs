@@ -38,11 +38,37 @@ namespace ServiceApplication2
         //6.5	Create a button method called “AddNewItem” that will add a new service item to a Queue<> based on the priority.
         //Use TextBoxes for the Client Name, Drone Model, Service Problem and Service Cost. Use a numeric up/down control for the Service Tag.
         //The new service item will be added to the appropriate Queue based on the Priority radio button.
-        private void add()
+        private void AddNewItem()
         {
             try
             {
+                string name = tbClientName.Text;
+                string model = tbDroneModel.Text;
+                string problem = tbServiceProblem.Text;
+                double cost = double.Parse(tbServiceCost.Text);
+                int tag = int.Parse(iuoServiceTag.Text);
 
+                if (rbExpress.IsChecked == true)
+                {
+                    Drone newRegular = new Drone();
+                    newRegular.setName(name);
+                    newRegular.setModel(model);
+                    newRegular.setProblem(problem);
+                    newRegular.setCost(cost);
+                    newRegular.setTag(tag);
+                    RegularService.Enqueue(newRegular);
+                }
+
+                if (rbExpress.IsChecked == true) 
+                {
+                    Drone newExpress = new Drone();
+                    newExpress.setName(name);
+                    newExpress.setModel(model);
+                    newExpress.setProblem(problem);
+                    newExpress.setCost(cost);
+                    newExpress.setTag(tag);
+                    ExpressService.Enqueue(newExpress);
+                }
             }
             catch (Exception ex)
             {
@@ -54,7 +80,10 @@ namespace ServiceApplication2
 
         //6.7	Create a custom method called “GetServicePriority” which returns the value of the priority radio group.
         //This method must be called inside the “AddNewItem” method before the new service item is added to a queue.
+        private bool GetServicePriority(GroupBox group, int index)
+        {
 
+        }
         //6.8	Create a custom method that will display all the elements in the RegularService queue.
         //The display must use a List View and with appropriate column headers.
 
