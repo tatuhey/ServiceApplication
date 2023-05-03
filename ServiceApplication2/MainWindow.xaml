@@ -4,9 +4,60 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceApplication2"
+        xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="641" Width="1078">
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tbClientName" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.786,0.278" Height="20"/>
+        <TextBox x:Name="tbDroneModel" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.786,0.278" Height="20"/>
+        <TextBox x:Name="tbServiceProblem" HorizontalAlignment="Left" Margin="10,137,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.786,0.278" Height="160"/>
+        <Label x:Name="Client_Name" Content="Client Name" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Drone_Model" Content="Drone Model" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Service_Problem" Content="Service Problem" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Service_Tag" Content="Service Tag" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top"/>
+        <wpfx:IntegerUpDown x:Name="iuoServiceTag" Value="100" FormatString="F" DefaultValue="100" IsUndoEnabled="False" AllowTextInput="False" RenderTransformOrigin="0.786,0.286" Width="69" Margin="10,328,0,0" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top"/>
+        <GroupBox x:Name="gbServicePriority" Header="Service Priority" Margin="84,306,0,0" RenderTransformOrigin="0.5,0.5" Width="176" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.636"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.322"/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+        </GroupBox>
+        <RadioButton x:Name="rdExpress" Content="Express" HorizontalAlignment="Left" Margin="93,328,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdRegular" Content="Regular" HorizontalAlignment="Left" Margin="156,328,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbServiceCost" HorizontalAlignment="Left" Margin="10,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <Label x:Name="Service_Cost" Content="Service Cost" HorizontalAlignment="Left" Margin="10,353,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,412,0,0" VerticalAlignment="Top" Width="74"/>
+        <Label x:Name="Express" Content="Express" HorizontalAlignment="Left" Margin="283,9,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="lvExpress" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="283,35,0,0" Height="181" VerticalAlignment="Top" HorizontalAlignment="Left" Width="451">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="Regular" Content="Regular" HorizontalAlignment="Left" Margin="283,246,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnExpress" Content="Complete Express" HorizontalAlignment="Left" Margin="283,221,0,0" VerticalAlignment="Top" Width="127"/>
+        <ListView x:Name="lvRegular" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="283,272,0,0" HorizontalAlignment="Left" Width="451" Height="216" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnRegular" Content="Complete Regular" HorizontalAlignment="Left" Margin="283,493,0,0" VerticalAlignment="Top" Width="127"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="760,35,0,0" Height="290" VerticalAlignment="Top" HorizontalAlignment="Left" Width="258"/>
+        <Label x:Name="Finished_List" Content="Finished List" HorizontalAlignment="Left" Margin="760,9,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnPay" Content="Pay" HorizontalAlignment="Left" Margin="760,330,0,0" VerticalAlignment="Top" Height="49" Width="75" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>
