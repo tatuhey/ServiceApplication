@@ -38,7 +38,7 @@
         <Label x:Name="Service_Cost" Content="Service Cost" HorizontalAlignment="Left" Margin="10,353,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,412,0,0" VerticalAlignment="Top" Width="75" Height="50" FontSize="16" FontWeight="Bold" Click="btnAdd_Click"/>
         <Label x:Name="Express" Content="Express" HorizontalAlignment="Left" Margin="283,9,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ListView x:Name="lvExpress" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="283,35,0,0" Height="181" VerticalAlignment="Top" HorizontalAlignment="Left" Width="451" MouseLeftButtonDown="lvExpress_MouseLeftButtonDown">
+        <ListView x:Name="lvExpress" Margin="283,35,0,0" Height="181" VerticalAlignment="Top" HorizontalAlignment="Left" Width="451" MouseLeftButtonDown="lvExpress_MouseLeftButtonDown" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Client Name" DisplayMemberBinding="{Binding}"/>

@@ -35,6 +35,27 @@ namespace ServiceApplication2
         //6.4	Create a global Queue<T> of type Drone called “ExpressService”.
         Queue<Drone> ExpressService = new Queue<Drone>();
 
+        private void InitialiseExpressListView()
+        {
+            GridView gridView = new GridView();
+            gridView.Columns.Add(new GridViewColumn { Header = "Client Name", DisplayMemberBinding = new Binding("Name") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Drone Model", DisplayMemberBinding = new Binding("Model") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Service Problem", DisplayMemberBinding = new Binding("Problem") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Service Tag", DisplayMemberBinding = new Binding("Tag") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Service Cost", DisplayMemberBinding = new Binding("Cost") });
+            lvExpress.View = gridView;
+        }
+        private void InitialiseRegularListView()
+        {
+            GridView gridView = new GridView();
+            gridView.Columns.Add(new GridViewColumn { Header = "Client Name", DisplayMemberBinding = new Binding("Name") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Drone Model", DisplayMemberBinding = new Binding("Model") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Service Problem", DisplayMemberBinding = new Binding("Problem") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Service Tag", DisplayMemberBinding = new Binding("Tag") });
+            gridView.Columns.Add(new GridViewColumn { Header = "Service Cost", DisplayMemberBinding = new Binding("Cost") });
+            lvRegular.View = gridView;
+        }
+
         #region methods
         //6.5	Create a button method called “AddNewItem” that will add a new service item to a Queue<> based on the priority.
         //Use TextBoxes for the Client Name, Drone Model, Service Problem and Service Cost. Use a numeric up/down control for the Service Tag.
@@ -61,6 +82,7 @@ namespace ServiceApplication2
                     RegularService.Enqueue(newRegular);
                 }
 
+                InitialiseRegularListView();
                 DisplayRegular();
 
                 if (priority == 0)
@@ -74,6 +96,7 @@ namespace ServiceApplication2
                     ExpressService.Enqueue(newExpress);
                 }
 
+                InitialiseExpressListView();
                 DisplayExpress();
                 ClearTextboxes();
             }
@@ -117,11 +140,11 @@ namespace ServiceApplication2
             lvExpress.Items.Clear();
             foreach (var item in ExpressService)
             {
-                var lvi = new ListViewItem();
-                lvi.Content = new { Name = item.getName(), Model = item.getModel(), Problem = item.getProblem(), Cost = item.getCost(), Tag = item.getTag() };
-                lvExpress.Items.Add(lvi);
+                lvExpress.Items.Add(new { Name = item.getName(), Model = item.getModel(), Problem = item.getProblem(), Cost = item.getCost(), Tag = item.getTag() });
             }
+
         }
+
         //6.10	Create a custom keypress method to ensure the Service Cost textbox can only accept a double value with one decimal point.
         private void tbServiceCost_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -136,7 +159,7 @@ namespace ServiceApplication2
         private int IncrementTag(int value)
         {
             int currentTag = int.Parse(iuoServiceTag.Text);
-            int newTag = currentTag + 10;
+            int newTag = currentTag;
             if (newTag > 900)
             {
                 newTag = 100;
@@ -269,6 +292,7 @@ namespace ServiceApplication2
             tbServiceCost.Text = string.Empty;
 
         }
+
         #region Buttons
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
